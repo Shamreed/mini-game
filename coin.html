@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>coin-flip</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+
+    <button onclick="
+      playGames('heads');
+    ">heads</button>
+    
+    <button onclick="
+      playGames('tails');
+    ">tails</button>
+
+    <button onclick="
+      score.wins = 0;
+      score.losses = 0;
+      localStorage.removeItem('score');
+      alert('Reset succesfull!');
+    ">reset</button>
+    
+    <script>
+      
+      let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+
+      function playGames(guess){
+        const randomNumber = Math.random();
+
+        const computerMove = randomNumber < 0.5 ? 'heads' : 'tails';
+        /*
+        if (randomNumber < 0.5){
+          result = 'heads';
+        } else{
+          result = 'tails';
+        }
+        */
+
+        //console.log(computerMove);
+
+        const result = guess === computerMove ? 'You Win!' : 'You Lost!';
+        /*
+        if (guess === result){
+          console.log('You Win!');
+        } else {
+          console.log('You Lost!');
+        }
+        */
+
+        console.log(result);
+
+        if (result === 'You Win!'){
+          score.wins ++;
+        } else if (result === 'You Lost!'){
+          score.losses ++;
+        }
+
+        localStorage.setItem('score', JSON.stringify(score));
+
+        alert(`you picked ${guess}. and compute picked ${computerMove}. ${result} 
+wins: ${score.wins}, losses: ${score.losses}`);
+       
+
+      }
+
+    </script>
+  </body>
+</html>
