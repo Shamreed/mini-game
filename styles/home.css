@@ -1,0 +1,39 @@
+body{
+  background-color: rgb(25, 25, 25);
+  color: white;
+  font-family: Arial;
+}
+
+.div1{
+  display: block;
+  margin: 50px;
+}
+
+.div2{
+  display: block;
+  margin: 50px;
+}
+
+.buttons{
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 20px 40px;
+  transition:  padding 0.5s;
+  margin-right: 100px;
+  }
+
+.buttons:hover{
+  padding: 40px 60px;
+}  
+
+.buttons:active{
+  margin-left: 3px;
+  margin-top: 3px;
+  box-shadow: none;
+}
+
+.button1{
+  margin-left: 55px;
+}
